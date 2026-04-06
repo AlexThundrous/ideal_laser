@@ -8,7 +8,7 @@ const services = [
     name: "Marking",
     description: "Professional laser marking for precision engraving on metals, plastics, and more",
     fullDescription: "At Ideal Laser, we provide high-precision laser marking jobwork services for permanent and high-quality marking on various materials. Using advanced fiber laser marking machines, we deliver sharp, clear, and long-lasting markings such as logos, serial numbers, barcodes, and designs. With experience since 2005, we ensure consistent quality, fast turnaround, and cost-effective solutions for all types of marking requirements.",
-    image: "/Table_Top_Machine.png",
+    image: "/table_top.png",
     features: [
       "Stainless Steel (SS), Mild Steel (MS), Aluminum, Brass, Copper, Plastic",
       "Logo Marking, Serial Number, QR Code, Barcode, Name Plates, Deep Engraving",

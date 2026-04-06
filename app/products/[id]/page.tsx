@@ -6,7 +6,7 @@ const products = [
   {
     id: 1,
     name: "Table Top Laser Marking Machine",
-    image: "/Table_Top.png",
+    image: "/table_top.png",
     desc: "Versatile Solution",
     fullDescription: "Versatile table-top laser marking system suitable for various materials. Compact yet powerful, perfect for small to medium production runs.",
     features: [

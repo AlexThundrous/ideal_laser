@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/ui/button";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const TAGS = ["cutting", "welding", "marking"];
 
@@ -14,7 +15,7 @@ const PRODUCTS = [
     {
     id: 1,
     name: "Table Top Laser Marking Machine",
-    image: "/Table_Top.png",
+    image: "/table_top.png",
     tags: ["marking"],
     description: "Versatile Solution - Compact and efficient marking system",
   },
@@ -143,6 +144,7 @@ export default function ProductsPage() {
 
         </div>
       </main>
+      <Footer />
     </>
   );
 }
