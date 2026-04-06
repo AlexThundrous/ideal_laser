@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -15,29 +14,13 @@ interface Product {
   specs: Record<string, string | undefined>;
 }
 
-interface ProductDetailClientProps {
-  products: Product[];
-  initialProductId: number;
-}
-
-export default function ProductDetailClient({
-  products,
-  initialProductId,
-}: ProductDetailClientProps) {
+export default function ProductDetail({ product }: { product: Product }) {
   const router = useRouter();
-  const [activeProduct, setActiveProduct] = useState(initialProductId);
-  const displayProduct = products.find((p) => p.id === activeProduct);
-
-  if (!displayProduct) {
-    return <div>Product not found</div>;
-  }
 
   return (
     <section className="mt-4 py-16 md:py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Product Detail */}
         <motion.div
-          key={activeProduct}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -46,11 +29,12 @@ export default function ProductDetailClient({
           {/* Image */}
           <div className="flex justify-center items-center rounded-lg overflow-hidden shadow-xl">
             <Image
-              src={displayProduct.image}
-              alt={displayProduct.name}
+              src={product.image}
+              alt={product.name}
               width={500}
               height={500}
               className="w-full h-auto"
+              priority
             />
           </div>
 
@@ -58,10 +42,10 @@ export default function ProductDetailClient({
           <div className="space-y-6">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {displayProduct.name}
+                {product.name}
               </h2>
               <p className="text-gray-600 text-lg mb-4">
-                {displayProduct.fullDescription}
+                {product.fullDescription}
               </p>
             </div>
 
@@ -69,7 +53,7 @@ export default function ProductDetailClient({
             <div>
               <h3 className="text-xl font-semibold mb-4">Key Features</h3>
               <ul className="space-y-2">
-                {displayProduct.features.map((feature, idx) => (
+                {product.features.map((feature, idx) => (
                   <li
                     key={idx}
                     className="flex items-center gap-3 text-gray-700"
@@ -85,7 +69,7 @@ export default function ProductDetailClient({
             <div>
               <h3 className="text-xl font-semibold mb-4">Specifications</h3>
               <div className="grid grid-cols-2 gap-4">
-                {Object.entries(displayProduct.specs).map(([key, value]) => (
+                {Object.entries(product.specs).map(([key, value]) => (
                   <div key={key} className="bg-gray-50 p-4 rounded-lg">
                     <p className="text-gray-600 text-sm capitalize">
                       {key.replace(/([A-Z])/g, " $1")}

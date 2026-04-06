@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import ScrollFloat from "./ui/ScrollFloat";
 
 const categoryImages = [
-  { name: "Marking", image: "/Table_Top.png", desc: "Professional marking systems", id: "marking" },
+  { name: "Marking", image: "/table_top.png", desc: "Professional marking systems", id: "marking" },
   { name: "Cutting", image: "/laser_cuting.png", desc: "Precision laser and water jet cutting solutions", id: "cutting" },
   { name: "Welding", image: "/laser_welding.png", desc: "Advanced welding technology", id: "welding" },
 ];

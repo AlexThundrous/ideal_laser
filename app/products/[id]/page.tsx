@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import ProductDetailClient from "./ProductDetailClient";
+import ProductDetail from "./ProductDetailClient";
 
 const products = [
   {
@@ -120,23 +120,33 @@ const products = [
   }
 ];
 
-export async function generateStaticParams() {
-  return products.map((product) => ({
-    id: product.id.toString(),
-  }));
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const product = products.find(p => p.id === parseInt(params.id));
+  return {
+    title: product?.name || "Product",
+  };
 }
 
-export default function ProductDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default function Page({ params }: { params: { id: string } }) {
   const productId = parseInt(params.id);
+  const product = products.find(p => p.id === productId);
+
+  if (!product) {
+    return (
+      <main className="bg-white text-black">
+        <Navbar />
+        <div className="py-20 text-center">
+          <h1 className="text-2xl font-bold">Product not found</h1>
+        </div>
+        <Footer />
+      </main>
+    );
+  }
 
   return (
     <main className="bg-white text-black">
       <Navbar />
-      <ProductDetailClient products={products} initialProductId={productId} />
+      <ProductDetail product={product} />
       <Footer />
     </main>
   );
