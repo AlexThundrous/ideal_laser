@@ -4,52 +4,6 @@ import ProductDetailClient from "./ProductDetailClient";
 
 const products = [
   {
-    id: 2,
-    name: "60W Fiber Laser Marking Machine",
-    image: "/60W_Laser_machne.png",
-    desc: "Compact & Efficient",
-    fullDescription: "A compact and efficient fiber laser marking system perfect for precision engraving on metals and non-metals. Ideal for industrial applications requiring high-speed, high-precision marking.",
-    features: [
-      "60W Fiber Laser",
-      "Precision up to ±0.05mm",
-      "Marking speed up to 7000mm/s",
-      "Compact desktop design",
-      "Easy-to-use software interface",
-      "Air-cooled system"
-    ],
-    specs: {
-      power: "60W Fiber Laser",
-      wavelength: "1064nm",
-      markingArea: "150mm x 150mm",
-      frequency: "20-100kHz",
-      cooling: "Air-cooled",
-      weight: "45kg"
-    }
-  },
-  {
-    id: 4,
-    name: "Laser Welding Machine",
-    image: "/Laser_Welding.jpeg",
-    desc: "Precision Welding",
-    fullDescription: "Advanced laser welding system for precision joining of delicate materials. Perfect for electronics, jewelry, medical devices, and precision engineering applications.",
-    features: [
-      "500W-3000W Fiber Laser",
-      "Minimal heat impact",
-      "No filler material required",
-      "Precision spot welding",
-      "Maximum penetration control",
-      "Ideal for sensitive materials"
-    ],
-    specs: {
-      power: "500W-3000W",
-      spotSize: "0.1mm-0.3mm",
-      precision: "±0.01mm",
-      speed: "Variable up to 100mm/s",
-      cooling: "Water-cooled",
-      accuracy: "±0.05mm"
-    }
-  },
-  {
     id: 1,
     name: "Table Top Laser Marking Machine",
     image: "/Table_Top.png",
@@ -73,6 +27,29 @@ const products = [
     }
   },
   {
+    id: 2,
+    name: "60W Fiber Laser Marking Machine",
+    image: "/60W_Laser_machne.png",
+    desc: "Compact & Efficient",
+    fullDescription: "A compact and efficient fiber laser marking system perfect for precision engraving on metals and non-metals. Ideal for industrial applications requiring high-speed, high-precision marking.",
+    features: [
+      "60W Fiber Laser",
+      "Precision up to ±0.05mm",
+      "Marking speed up to 7000mm/s",
+      "Compact desktop design",
+      "Easy-to-use software interface",
+      "Air-cooled system"
+    ],
+    specs: {
+      power: "60W Fiber Laser",
+      wavelength: "1064nm",
+      markingArea: "150mm x 150mm",
+      frequency: "20-100kHz",
+      cooling: "Air-cooled",
+      weight: "45kg"
+    }
+  },
+  {
     id: 3,
     name: "UV Laser Marking Machine",
     image: "/UV_Laser_machine.png",
@@ -93,6 +70,29 @@ const products = [
       workingArea: "70×70mm / 110×110mm",
       operatingPlatform: "Ezcad / Ezcad Lite",
       cooling: "Air-cooled / water-cooled"
+    }
+  },
+  {
+    id: 4,
+    name: "Laser Welding Machine",
+    image: "/Laser_Welding.jpeg",
+    desc: "Precision Welding",
+    fullDescription: "Advanced laser welding system for precision joining of delicate materials. Perfect for electronics, jewelry, medical devices, and precision engineering applications.",
+    features: [
+      "500W-3000W Fiber Laser",
+      "Minimal heat impact",
+      "No filler material required",
+      "Precision spot welding",
+      "Maximum penetration control",
+      "Ideal for sensitive materials"
+    ],
+    specs: {
+      power: "500W-3000W",
+      spotSize: "0.1mm-0.3mm",
+      precision: "±0.01mm",
+      speed: "Variable up to 100mm/s",
+      cooling: "Water-cooled",
+      accuracy: "±0.05mm"
     }
   },
   {

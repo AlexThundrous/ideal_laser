@@ -184,15 +184,28 @@ export default function ServicesClient({ services }: ServicesClientProps) {
 
             {/* Image and Stats */}
             <div className="space-y-6">
-              <div className="rounded-lg overflow-hidden shadow-xl h-full">
-                <Image
-                  src={currentService.image}
-                  alt={currentService.name}
-                  width={600}
-                  height={600}
-                  className="w-full h-auto"
+              {currentService.id === "marking" && (
+                <video
+                  src="/laser_marking.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  controls
+                  className="w-full rounded-lg overflow-hidden shadow-xl object-cover"
+                  style={{ minHeight: "400px" }}
                 />
-              </div>
+              )}
+              {currentService.id !== "marking" && (
+                <div className="rounded-lg overflow-hidden shadow-xl h-full">
+                  <Image
+                    src={currentService.image}
+                    alt={currentService.name}
+                    width={600}
+                    height={600}
+                    className="w-full h-auto"
+                  />
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
