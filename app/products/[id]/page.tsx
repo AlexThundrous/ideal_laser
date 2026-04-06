@@ -1,6 +1,11 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import ProductDetail from "./ProductDetailClient";
 
 const products = [
   {
@@ -120,23 +125,24 @@ const products = [
   }
 ];
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const product = products.find(p => p.id === parseInt(params.id));
-  return {
-    title: product?.name || "Product",
-  };
-}
+export default function ProductPage() {
+  const params = useParams();
+  const [product, setProduct] = useState<any>(null);
 
-export default function Page({ params }: { params: { id: string } }) {
-  const productId = parseInt(params.id);
-  const product = products.find(p => p.id === productId);
+  useEffect(() => {
+    if (params?.id) {
+      const productId = parseInt(params.id as string);
+      const foundProduct = products.find(p => p.id === productId);
+      setProduct(foundProduct);
+    }
+  }, [params]);
 
   if (!product) {
     return (
       <main className="bg-white text-black">
         <Navbar />
-        <div className="py-20 text-center">
-          <h1 className="text-2xl font-bold">Product not found</h1>
+        <div className="min-h-screen flex items-center justify-center">
+          <p className="text-xl text-gray-600">Loading product...</p>
         </div>
         <Footer />
       </main>
@@ -146,7 +152,73 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <main className="bg-white text-black">
       <Navbar />
-      <ProductDetail product={product} />
+      
+      <section className="mt-4 py-16 md:py-24 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
+          >
+            {/* Image */}
+            <div className="flex justify-center items-center rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={500}
+                height={500}
+                className="w-full h-auto"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">{product.name}</h2>
+                <p className="text-gray-600 text-lg mb-4">{product.fullDescription}</p>
+              </div>
+
+              {/* Features */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Key Features</h3>
+                <ul className="space-y-2">
+                  {product.features.map((feature: string, idx: number) => (
+                    <li key={idx} className="flex items-center gap-3 text-gray-700">
+                      <span className="w-2 h-2 bg-blue-600 rounded-full" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Specifications */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Specifications</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.entries(product.specs).map(([key, value]: [string, any]) => (
+                    <div key={key} className="bg-gray-50 p-4 rounded-lg">
+                      <p className="text-gray-600 text-sm capitalize">{key.replace(/([A-Z])/g, ' $1')}</p>
+                      <p className="font-semibold text-gray-900">{value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <motion.button
+                onClick={() => window.location.href = '/contact'}
+                className="mt-8 px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get A Quote
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
