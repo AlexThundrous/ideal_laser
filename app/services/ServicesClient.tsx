@@ -184,9 +184,9 @@ export default function ServicesClient({ services }: ServicesClientProps) {
 
             {/* Image and Stats */}
             <div className="space-y-6">
-              {currentService.id === "marking" && (
+              {(currentService.id === "marking" || currentService.id === "cutting") && (
                 <video
-                  src="/laser_marking.mp4"
+                  src={currentService.image}
                   autoPlay
                   muted
                   loop
@@ -195,7 +195,7 @@ export default function ServicesClient({ services }: ServicesClientProps) {
                   style={{ minHeight: "400px" }}
                 />
               )}
-              {currentService.id !== "marking" && (
+              {currentService.id !== "marking" && currentService.id !== "cutting" && (
                 <div className="rounded-lg overflow-hidden shadow-xl h-full">
                   <Image
                     src={currentService.image}

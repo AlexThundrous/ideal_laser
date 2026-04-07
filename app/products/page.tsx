@@ -116,7 +116,8 @@ export default function ProductsPage() {
               <Image
                 src={product.image}
                 alt={product.name}
-                fill
+                width={400}
+                height={300}
                 className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
               />
             </div>

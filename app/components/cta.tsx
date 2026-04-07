@@ -1,11 +1,14 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { Button } from "@/ui/button";
 import ScrollFloat from "./ui/ScrollFloat";
 
 export default function CTA() {
+  const router = useRouter();
+
   return (
     <section className="py-12 md:py-20 text-center bg-black text-white">
       <ScrollFloat 
@@ -19,7 +22,7 @@ export default function CTA() {
         Ready to Upgrade Your Production?
       </ScrollFloat>
 
-      <Button size="lg">Contact Us</Button>
+      <Button size="lg" onClick={() => router.push("/contact")}>Contact Us</Button>
     </section>
   );
 }
