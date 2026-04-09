@@ -2,17 +2,21 @@
   RewriteEngine On
   RewriteBase /
   
-  # Remove .html extension
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^([^\.]+)$ $1.html [NC,L]
+  # If it's a real file, serve as-is
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
   
-  # Route directories to index.html
+  # If request + .html exists, rewrite to it (prefer HTML files over directories)
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+  
+  # If it's a directory with index.html, serve it
   RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^(.*?)/?$ $1/index.html [L]
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^ - [L]
   
-  # Handle 404s
-  ErrorDocument 404 /404.html
+  # Handle all other routes with 404.html
+  RewriteRule ^ /404.html [L]
 </IfModule>
 
 # Cache policy
