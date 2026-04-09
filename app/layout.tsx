@@ -10,9 +10,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Ideal Laser - Professional Laser Cutting & Marking Services",
   description: "Expert laser cutting, marking, and welding services with advanced fiber laser technology",
-  icons: {
-    icon: "/icon.png",
-  },
+  icons: [
+    { rel: "icon", url: "/icon.png", type: "image/png", sizes: "any" },
+  ],
 };
 
 export default function RootLayout({

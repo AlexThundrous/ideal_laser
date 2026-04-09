@@ -39,10 +39,10 @@ export default function Featured() {
             viewport={{ once: true }}
             whileHover={{ y: -10 }}
           >
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow p-0 flex flex-col h-64 sm:h-72 md:h-130">
-              <div className="flex-1 relative">
-                {/* Image - 65% */}
-                <AspectRatio ratio={1} className="h-full overflow-hidden">
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow p-0 flex flex-col h-auto">
+              <div className="relative w-full">
+                {/* Image - 1:1 aspect ratio */}
+                <AspectRatio ratio={1} className="overflow-hidden">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -52,15 +52,13 @@ export default function Featured() {
                 </AspectRatio>
               </div>
 
-              {/* Info - 35% */}
-              <div className="h-2/5 p-2 sm:p-3 md:p-6 flex flex-col justify-between bg-white">
+              {/* Info section */}
+              <div className="p-3 sm:p-4 md:p-6 flex flex-col justify-between bg-white">
                 <div>
-                  <h3 className="font-semibold text-base md:text-lg mb-2">{product.name}</h3>
-                  <p className="text-gray-500 text-xs md:text-sm">
-                    {product.desc}
-                  </p>
+                  <h3 className="font-semibold text-sm sm:text-base md:text-lg mb-2">{product.name}</h3>
+                  <p className="text-gray-500 text-xs sm:text-sm">{product.desc}</p>
                 </div>
-                <Button className="w-full flex items-center justify-center gap-2">
+                <Button className="w-full flex items-center justify-center gap-2 mt-3 sm:mt-4">
                   <Link href={`/products/${product.id}`} className="flex items-center justify-center gap-2 w-full">
                     View More Details
                     <ChevronRight className="w-4 h-4" />
