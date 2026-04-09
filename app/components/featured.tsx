@@ -10,9 +10,9 @@ import ScrollFloat from "./ui/ScrollFloat";
 
 const products = [
   { id: 1, name: "Table Top Laser Marking Machine", image: "/table_top.png", desc: "Versatile Solution" },
-  { id: 2, name: "60W Fiber Laser Marking Machine ", image: "/60W_Laser_machne.png", desc: "Compact & Efficient" },
-  { id: 3, name: "Laser Welding Machine", image: "/Laser_Welding.jpeg", desc: "Precision Welding" },
-  { id: 4, name: "Fiber Metal Laser Cutting Machine", image: "/laser_cuting.png", desc: "High-Speed Cutting" },
+  { id: 2, name: "60W Fiber Laser Marking Machine", image: "/60W_Laser_machne.png", desc: "Compact & Efficient" },
+  { id: 3, name: "UV Laser Marking Machine", image: "/UV_Laser_machine.png", desc: "UV Marking Precision" },
+  { id: 4, name: "Laser Welding Machine", image: "/Laser_Welding.jpeg", desc: "Precision Welding" },
 ];
 export default function Featured() {
   const { scrollY } = useScroll();
