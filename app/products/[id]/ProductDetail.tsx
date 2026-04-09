@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { AspectRatio } from "@/ui/aspect-ratio";
 import Footer from "@/components/footer";
 
 export default function ProductDetail({ product }: { product: any }) {
@@ -17,14 +18,16 @@ export default function ProductDetail({ product }: { product: any }) {
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
         >
           {/* Image */}
-          <div className="flex justify-center items-center rounded-lg overflow-hidden shadow-xl">
-            <Image
-              src={product.image}
-              alt={product.name}
-              width={500}
-              height={500}
-              className="w-full h-auto"
-            />
+          <div className="flex justify-center items-center shadow-xl">
+            <AspectRatio ratio={1}>
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={500}
+                height={500}
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </AspectRatio>
           </div>
 
           {/* Content */}

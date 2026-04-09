@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { AspectRatio } from "@/ui/aspect-ratio";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ScrollFloat from "@/components/ui/ScrollFloat";
@@ -92,15 +93,17 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="rounded-lg overflow-hidden shadow-lg h-full relative"
               >
-                <video
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  muted
-                  loop
-                >
-                  <source src="/laser_marking.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <AspectRatio ratio={16 / 9}>
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                  >
+                    <source src="/laser_marking.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </AspectRatio>
                 <div className="absolute inset-0 bg-black/25 rounded-lg pointer-events-none" />
               </motion.div>
               <div className="grid grid-cols-1 gap-4 justify-items-start">

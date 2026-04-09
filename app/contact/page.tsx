@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin } from "lucide-react";
 import Image from "next/image";
+import { AspectRatio } from "@/ui/aspect-ratio";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
@@ -133,22 +134,9 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }} 
-              style={{
-                position: "relative",
-                width: "100%",
-                paddingBottom: "56.25%"
-              }}
+              className="rounded-lg overflow-hidden shadow-lg"
             >
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%"
-                }}
-                className="rounded-lg overflow-hidden shadow-lg"
-              >
+              <AspectRatio ratio={16 / 9}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d895723.11075306!2d75.92718799999999!3d28.721984500000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd309eebed77%3A0xf6e3da6bed396fc4!2sIdeal%20Laser!5e0!3m2!1sen!2sin!4v1774449171166!5m2!1sen!2sin"
                   width="100%"
@@ -158,7 +146,7 @@ export default function ContactPage() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
-              </div>
+              </AspectRatio>
             </motion.div>
           </div>
         </div>

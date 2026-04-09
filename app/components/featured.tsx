@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { AspectRatio } from "@/ui/aspect-ratio";
 import { Card } from "@/ui/card";
 import { Button } from "@/ui/button";
 import ScrollFloat from "./ui/ScrollFloat";
@@ -40,33 +41,33 @@ export default function Featured() {
             viewport={{ once: true }}
             whileHover={{ y: -10 }}
           >
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow p-0 h-64 sm:h-72 md:h-130">
-              <div className="flex flex-col h-full w-full">
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow p-0 flex flex-col h-64 sm:h-72 md:h-130">
+              <div className="flex-1">
                 {/* Image - 65% */}
-                <div className="h-3/5 relative">
+                <AspectRatio ratio={1} className="h-full">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
                     className="object-cover"
                   />
-                </div>
+                </AspectRatio>
+              </div>
 
-                {/* Info - 35% */}
-                <div className="h-2/5 p-2 sm:p-3 md:p-6 flex flex-col justify-between bg-white">
-                  <div>
-                    <h3 className="font-semibold text-base md:text-lg mb-2">{product.name}</h3>
-                    <p className="text-gray-500 text-xs md:text-sm">
-                      {product.desc}
-                    </p>
-                  </div>
-                  <Button className="w-full flex items-center justify-center gap-2">
-                    <Link href={`/products/${product.id}`} className="flex items-center justify-center gap-2 w-full">
-                      View More Details
-                      <ChevronRight className="w-4 h-4" />
-                    </Link>
-                  </Button>
+              {/* Info - 35% */}
+              <div className="h-2/5 p-2 sm:p-3 md:p-6 flex flex-col justify-between bg-white">
+                <div>
+                  <h3 className="font-semibold text-base md:text-lg mb-2">{product.name}</h3>
+                  <p className="text-gray-500 text-xs md:text-sm">
+                    {product.desc}
+                  </p>
                 </div>
+                <Button className="w-full flex items-center justify-center gap-2">
+                  <Link href={`/products/${product.id}`} className="flex items-center justify-center gap-2 w-full">
+                    View More Details
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </Button>
               </div>
             </Card>
           </motion.div>

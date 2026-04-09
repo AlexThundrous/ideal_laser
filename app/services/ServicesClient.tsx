@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { AspectRatio } from "@/ui/aspect-ratio";
 import ScrollFloat from "@/components/ui/ScrollFloat";
 import Stepper, { Step } from "@/components/ui/Stepper";
 
@@ -89,26 +90,26 @@ export default function ServicesClient({ services }: ServicesClientProps) {
             {/* Image and Stats - Shows first on mobile */}
             <div className="space-y-6 md:hidden order-first">
               {(currentService.id === "marking" || currentService.id === "cutting") && (
-                <video
-                  src={currentService.image}
-                  autoPlay
-                  muted
-                  loop
-                  controls
-                  className="w-full rounded-lg overflow-hidden shadow-xl object-cover"
-                  style={{ minHeight: "400px" }}
-                />
+                <AspectRatio ratio={16 / 9} className="shadow-xl">
+                  <video
+                    src={currentService.image}
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </AspectRatio>
               )}
               {currentService.id !== "marking" && currentService.id !== "cutting" && (
-                <div className="rounded-lg overflow-hidden shadow-xl h-full">
+                <AspectRatio ratio={1} className="shadow-xl">
                   <Image
                     src={currentService.image}
                     alt={currentService.name}
                     width={600}
                     height={600}
-                    className="w-full h-auto"
+                    className="w-full h-full object-cover rounded-lg"
                   />
-                </div>
+                </AspectRatio>
               )}
             </div>
 
@@ -211,26 +212,26 @@ export default function ServicesClient({ services }: ServicesClientProps) {
             {/* Image and Stats - Hidden on mobile, shows on desktop */}
             <div className="space-y-6 hidden md:block">
               {(currentService.id === "marking" || currentService.id === "cutting") && (
-                <video
-                  src={currentService.image}
-                  autoPlay
-                  muted
-                  loop
-                  controls
-                  className="w-full rounded-lg overflow-hidden shadow-xl object-cover"
-                  style={{ minHeight: "400px" }}
-                />
+                <AspectRatio ratio={16 / 9} className="shadow-xl">
+                  <video
+                    src={currentService.image}
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </AspectRatio>
               )}
               {currentService.id !== "marking" && currentService.id !== "cutting" && (
-                <div className="rounded-lg overflow-hidden shadow-xl h-full">
+                <AspectRatio ratio={1} className="shadow-xl">
                   <Image
                     src={currentService.image}
                     alt={currentService.name}
                     width={600}
                     height={600}
-                    className="w-full h-auto"
+                    className="w-full h-full object-cover rounded-lg"
                   />
-                </div>
+                </AspectRatio>
               )}
             </div>
           </motion.div>

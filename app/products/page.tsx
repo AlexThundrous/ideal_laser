@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/ui/button";
+import { AspectRatio } from "@/ui/aspect-ratio";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
@@ -112,14 +113,16 @@ export default function ProductsPage() {
               className="rounded-xl overflow-hidden border border-slate-200 bg-white cursor-pointer group shadow-sm hover:shadow-lg transition-shadow"
             >
             {/* IMAGE */}
-            <div className="overflow-hidden relative h-56 bg-slate-50">
-              <Image
-                src={product.image}
-                alt={product.name}
-                width={400}
-                height={300}
-                className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-              />
+            <div className="overflow-hidden relative bg-slate-50">
+              <AspectRatio ratio={4 / 3}>
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105 rounded-t-xl"
+                />
+              </AspectRatio>
             </div>
 
             {/* CONTENT */}
