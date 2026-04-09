@@ -91,14 +91,15 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="rounded-lg overflow-hidden shadow-lg h-full relative"
+                className="relative"
               >
-                <AspectRatio ratio={16 / 9}>
+                <AspectRatio ratio={4/3} className="overflow-hidden rounded-lg shadow-lg">
                   <video
                     className="w-full h-full object-cover"
                     autoPlay
                     muted
                     loop
+                    onContextMenu={(e) => e.preventDefault()}
                   >
                     <source src="/laser_marking.mp4" type="video/mp4" />
                     Your browser does not support the video tag.

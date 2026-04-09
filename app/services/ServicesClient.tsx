@@ -90,24 +90,24 @@ export default function ServicesClient({ services }: ServicesClientProps) {
             {/* Image and Stats - Shows first on mobile */}
             <div className="space-y-6 md:hidden order-first">
               {(currentService.id === "marking" || currentService.id === "cutting") && (
-                <AspectRatio ratio={16 / 9} className="shadow-xl">
+                <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg shadow-xl">
                   <video
                     src={currentService.image}
                     autoPlay
                     muted
                     loop
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-full h-full object-cover"
                   />
                 </AspectRatio>
               )}
               {currentService.id !== "marking" && currentService.id !== "cutting" && (
-                <AspectRatio ratio={1} className="shadow-xl">
+                <AspectRatio ratio={1} className="overflow-hidden rounded-lg shadow-xl">
                   <Image
                     src={currentService.image}
                     alt={currentService.name}
                     width={600}
                     height={600}
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-full h-full object-cover"
                   />
                 </AspectRatio>
               )}
@@ -212,24 +212,25 @@ export default function ServicesClient({ services }: ServicesClientProps) {
             {/* Image and Stats - Hidden on mobile, shows on desktop */}
             <div className="space-y-6 hidden md:block">
               {(currentService.id === "marking" || currentService.id === "cutting") && (
-                <AspectRatio ratio={16 / 9} className="shadow-xl">
+                <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg shadow-xl">
                   <video
                     src={currentService.image}
                     autoPlay
                     muted
                     loop
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-full h-full object-cover"
+                    onContextMenu={(e) => e.preventDefault()}
                   />
                 </AspectRatio>
               )}
               {currentService.id !== "marking" && currentService.id !== "cutting" && (
-                <AspectRatio ratio={1} className="shadow-xl">
+                <AspectRatio ratio={1} className="overflow-hidden rounded-lg shadow-xl">
                   <Image
                     src={currentService.image}
                     alt={currentService.name}
                     width={600}
                     height={600}
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-full h-full object-cover"
                   />
                 </AspectRatio>
               )}

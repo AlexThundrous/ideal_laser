@@ -40,9 +40,9 @@ export default function Featured() {
             whileHover={{ y: -10 }}
           >
             <Card className="overflow-hidden hover:shadow-lg transition-shadow p-0 flex flex-col h-64 sm:h-72 md:h-130">
-              <div className="flex-1">
+              <div className="flex-1 relative">
                 {/* Image - 65% */}
-                <AspectRatio ratio={1} className="h-full">
+                <AspectRatio ratio={1} className="h-full overflow-hidden">
                   <Image
                     src={product.image}
                     alt={product.name}

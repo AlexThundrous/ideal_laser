@@ -18,14 +18,14 @@ export default function ProductDetail({ product }: { product: any }) {
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
         >
           {/* Image */}
-          <div className="flex justify-center items-center shadow-xl">
-            <AspectRatio ratio={1}>
+          <div className="flex justify-center items-center w-full">
+            <AspectRatio ratio={1} className="w-full overflow-hidden rounded-lg shadow-xl">
               <Image
                 src={product.image}
                 alt={product.name}
                 width={500}
                 height={500}
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-cover"
               />
             </AspectRatio>
           </div>

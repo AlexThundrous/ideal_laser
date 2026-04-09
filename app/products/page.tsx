@@ -114,13 +114,13 @@ export default function ProductsPage() {
             >
             {/* IMAGE */}
             <div className="overflow-hidden relative bg-slate-50">
-              <AspectRatio ratio={4 / 3}>
+              <AspectRatio ratio={4 / 3} className="overflow-hidden rounded-t-xl">
                 <Image
                   src={product.image}
                   alt={product.name}
                   width={400}
                   height={300}
-                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105 rounded-t-xl"
+                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
                 />
               </AspectRatio>
             </div>

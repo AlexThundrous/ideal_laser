@@ -37,7 +37,7 @@ export default function ContactPage() {
       {/* Contact Content Section */}
       <section className="py-16 md:py-24 px-6 bg-slate-900">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
             {/* Contact Info */}
             <div>
               <motion.div
@@ -133,10 +133,10 @@ export default function ContactPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }} 
-              className="rounded-lg overflow-hidden shadow-lg"
+              viewport={{ once: true }}
+              className="h-full flex flex-col"
             >
-              <AspectRatio ratio={16 / 9}>
+              <AspectRatio ratio={8/9} className="overflow-hidden rounded-lg shadow-lg flex-1">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d895723.11075306!2d75.92718799999999!3d28.721984500000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd309eebed77%3A0xf6e3da6bed396fc4!2sIdeal%20Laser!5e0!3m2!1sen!2sin!4v1774449171166!5m2!1sen!2sin"
                   width="100%"
@@ -145,6 +145,7 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
                 ></iframe>
               </AspectRatio>
             </motion.div>
