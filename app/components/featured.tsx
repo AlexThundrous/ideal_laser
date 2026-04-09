@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
@@ -16,8 +16,6 @@ const products = [
   { id: 4, name: "Laser Welding Machine", image: "/laser_welding.png", desc: "Precision Welding" },
 ];
 export default function Featured() {
-  const { scrollY } = useScroll();
-  const titleY = useTransform(scrollY, [600, 1000], [150, 0]);
   return (
     <section className="py-8 md:py-20 bg-gray-50 px-4 md:px-6">
       <ScrollFloat
