@@ -12,7 +12,7 @@ const products = [
   { id: 1, name: "Table Top Laser Marking Machine", image: "/table_top.png", desc: "Versatile Solution" },
   { id: 2, name: "60W Fiber Laser Marking Machine", image: "/60W_Laser_machne.png", desc: "Compact & Efficient" },
   { id: 3, name: "UV Laser Marking Machine", image: "/UV_Laser_machine.png", desc: "UV Marking Precision" },
-  { id: 4, name: "Laser Welding Machine", image: "/Laser_Welding.jpeg", desc: "Precision Welding" },
+  { id: 4, name: "Laser Welding Machine", image: "/laser_welding.png", desc: "Precision Welding" },
 ];
 export default function Featured() {
   const { scrollY } = useScroll();
@@ -30,7 +30,7 @@ export default function Featured() {
         Featured Machines
       </ScrollFloat>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-7xl mx-auto">
         {products.map((product, i) => (
           <motion.div
             key={i}
@@ -40,7 +40,7 @@ export default function Featured() {
             viewport={{ once: true }}
             whileHover={{ y: -10 }}
           >
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow p-0 h-64 sm:h-80 md:h-130">
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow p-0 h-64 sm:h-72 md:h-130">
               <div className="flex flex-col h-full w-full">
                 {/* Image - 65% */}
                 <div className="h-3/5 relative">
@@ -53,7 +53,7 @@ export default function Featured() {
                 </div>
 
                 {/* Info - 35% */}
-                <div className="h-2/5 p-2 md:p-6 flex flex-col justify-between bg-white">
+                <div className="h-2/5 p-2 sm:p-3 md:p-6 flex flex-col justify-between bg-white">
                   <div>
                     <h3 className="font-semibold text-base md:text-lg mb-2">{product.name}</h3>
                     <p className="text-gray-500 text-xs md:text-sm">

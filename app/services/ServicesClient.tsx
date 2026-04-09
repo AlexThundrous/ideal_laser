@@ -86,6 +86,32 @@ export default function ServicesClient({ services }: ServicesClientProps) {
             transition={{ duration: 0.5 }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start"
           >
+            {/* Image and Stats - Shows first on mobile */}
+            <div className="space-y-6 md:hidden order-first">
+              {(currentService.id === "marking" || currentService.id === "cutting") && (
+                <video
+                  src={currentService.image}
+                  autoPlay
+                  muted
+                  loop
+                  controls
+                  className="w-full rounded-lg overflow-hidden shadow-xl object-cover"
+                  style={{ minHeight: "400px" }}
+                />
+              )}
+              {currentService.id !== "marking" && currentService.id !== "cutting" && (
+                <div className="rounded-lg overflow-hidden shadow-xl h-full">
+                  <Image
+                    src={currentService.image}
+                    alt={currentService.name}
+                    width={600}
+                    height={600}
+                    className="w-full h-auto"
+                  />
+                </div>
+              )}
+            </div>
+
             {/* Content */}
             <div className="space-y-6">
               <div>
@@ -182,8 +208,8 @@ export default function ServicesClient({ services }: ServicesClientProps) {
               </motion.button>
             </div>
 
-            {/* Image and Stats */}
-            <div className="space-y-6">
+            {/* Image and Stats - Hidden on mobile, shows on desktop */}
+            <div className="space-y-6 hidden md:block">
               {(currentService.id === "marking" || currentService.id === "cutting") && (
                 <video
                   src={currentService.image}

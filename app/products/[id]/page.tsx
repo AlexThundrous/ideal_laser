@@ -79,7 +79,7 @@ const products = [
   {
     id: 4,
     name: "Laser Welding Machine",
-    image: "/Laser_Welding.jpeg",
+    image: "/laser_welding.png",
     desc: "Precision Welding",
     fullDescription: "Advanced laser welding system for precision joining of delicate materials. Perfect for electronics, jewelry, medical devices, and precision engineering applications.",
     features: [
